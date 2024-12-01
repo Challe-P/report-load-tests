@@ -1,0 +1,19 @@
+services:
+    fastapi:
+        image: challep/report-fastapi-server:1.0
+        container_name: "fastapi-server"
+        ports:
+          - 8000:8000
+    express:
+        image: challep/report-express-server:1.0
+        container_name: "express-server"
+        ports:
+          - 8001:8001
+    laravel:
+        image: challep/report-laravel-server:1.0
+        container_name: "laravel-server"
+        ports:
+          - 8002:8002
+        environment:
+          APP_ENV: production
+          APP_DEBUG: false
