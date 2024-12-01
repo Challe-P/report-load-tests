@@ -1,14 +1,14 @@
 # Load testing three popular API frameworks
 
-> This is our last dance
-> This is ourselves
+> This is our last dance  
+> This is ourselves  
 > Under pressure
 
 This report aims to test how three popular API frameworks in three different programming languages compare when load tested.
 
 The frameworks I've chosen are [FastAPI](https://fastapi.tiangolo.com/), written in Python, [Express](https://expressjs.com/), written in JavaScript and [Laravel](https://laravel.com/), written in PHP.
 
-The load testing will be done with [k6](https://k6.io/)
+The load testing will be done with [k6](https://k6.io/).
 
 If you only want to run the tests and don't care how the servers are built, you can skip to the test section of this readme. The servers are published in Docker Images, and can be run with the commands:
 
@@ -87,7 +87,7 @@ $ fastapi dev main.py
 
 ### Express
 
-This installation process follows this [guide](https://expressjs.com/en/starter/installing.html)
+This installation process follows this [guide](https://expressjs.com/en/starter/installing.html).
 
 * Create npm package
 ```
@@ -154,14 +154,14 @@ $ composer create-project laravel/laravel laravel
 * Install npm packages and build
 
 ```
-cd laravel
-npm install && npm run build
+$ cd laravel
+$ npm install && npm run build
 ```
 
 * Install Laravels API-plugin
 
 ```
-php artisan install:api
+$ php artisan install:api
 ```
 
 * Create the routes in the [routes/api.php-file](/laravel/routes/api.php)
@@ -189,8 +189,8 @@ Route::get('/items/{id}', function(Request $request, string $id) {
 * Build and run the server
 
 ```
-npm run build
-composer run dev 
+$ npm run build
+$ composer run dev 
 ```
 
 ## Package and run the servers in Docker Containers
@@ -216,7 +216,7 @@ This section follows this [guide](https://k6.io/blog/load-testing-restful-apis-w
 * Make sure you have k6 installed
 
 ```
-k6 --version
+$ k6 --version
 ```
 
 If not, follow this guide: https://grafana.com/docs/k6/latest/set-up/install-k6/
@@ -249,7 +249,7 @@ export default function () {
 
 You run it with the command:
 ```
-k6 run script.js
+$ k6 run script.js
 ```
 
 As you can see it tests the get function on the url specified. It looks like this when it's finished:
@@ -483,4 +483,6 @@ FastAPI handles the most requests, 9444, but is a bit slower than Express, which
 Load testing is a good way to check if your server is handling everything as it should. I hope that you learned some basics about it from this report. As we saw in the tests result can differ a lot depending on what framework your code is written in, so take some time to choose and do a couple of tests. Load testing along the way is also a good way to find choke points where your code can be improved. Remember: You'll need to test all your endpoints to see if everything is working properly.
 
 
-While performance is important, it's also important to choose a framework which works for you. Except maybe if Laravel works for you, then you'll need to find something faster. There's also other parameters this report doesn't cover, like extra features of the framework (I'm looking at you, [FastAPIs Interactive API docs](https://fastapi.tiangolo.com/#interactive-api-docs)). This is also an important factor to keep in mind when choosing your API framework. Good luck and keep on testing!
+While performance is important, it's also important to choose a framework which works for you. Except maybe if Laravel works for you, then you'll need to find something faster. There's also other parameters this report doesn't cover, like extra features of the framework (I'm looking at you, [FastAPIs Interactive API docs](https://fastapi.tiangolo.com/#interactive-api-docs)). This is also an important factor to keep in mind when choosing your API framework. 
+
+Good luck and keep on testing!
